@@ -53,7 +53,16 @@ sudo add-apt-repository “deb [arch=amd64] https://packages.microsoft.com/repos
 sudo apt install code
 
 echo "${GREEN}-> Configure Visual Studio Code${RESET}"
-# TODO
+mkdir -p $HOME/.config/Code/User/
+mv settings/settings.json $HOME/.config/Code/User/settings.json
+EXTENSIONS_FILE="settings/extensions"
+EXTENSIONS_LINES=`cat $EXTENSIONS_FILE`
+for extension in $EXTENSIONS_LINES; do
+    echo " * Install $extension"
+    code --install-extension $extension
+    echo "done..."
+    echo ""
+done
 
 echo "${GREEN}-> Configure git globally${RESET}"
 git config --global user.email "$GIT_EMAIL"
@@ -72,7 +81,7 @@ fi
 
 echo "${GREEN}-> Configure Ansible${RESET}"
 sudo mv /etc/ansible/ansible.cfg /etc/ansible/ansible.cfg-original
-sudo cp configs/ansible.cfg /etc/ansible/ansible.cfg
+sudo cp settings/ansible.cfg /etc/ansible/ansible.cfg
 
 echo "${GREEN}-> Install Telegram Desktop${RESET}"
 wget https://updates.tdesktop.com/tlinux/tsetup.2.7.4.tar.xz -P /tmp/
