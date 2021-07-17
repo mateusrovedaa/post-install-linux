@@ -1,0 +1,334 @@
+12:36:52.760: CPU Name: Intel(R) Core(TM) i5-7400 CPU @ 3.00GHz
+12:36:52.760: CPU Speed: 3048.828MHz
+12:36:52.760: Physical Cores: 4, Logical Cores: 4
+12:36:52.760: Physical Memory: 15971MB Total, 13025MB Free
+12:36:52.760: Kernel Version: Linux 5.8.0-0.bpo.2-amd64
+12:36:52.760: Distribution: "KDE Flatpak runtime" "5.15"
+12:36:52.760: Session Type: x11
+12:36:52.763: Window System: X11.0, Vendor: The X.Org Foundation, Version: 1.20.4
+12:36:52.765: Portable mode: false
+12:36:52.917: OBS 26.1.1 (linux)
+12:36:52.917: ---------------------------------
+12:36:53.016: ---------------------------------
+12:36:53.016: audio settings reset:
+12:36:53.016: 	samples per sec: 48000
+12:36:53.016: 	speakers:        2
+12:36:53.023: ---------------------------------
+12:36:53.023: Initializing OpenGL...
+12:36:53.105: Loading up OpenGL on adapter NVIDIA Corporation GeForce GTX 1050 Ti/PCIe/SSE2
+12:36:53.105: OpenGL loaded successfully, version 3.3.0 NVIDIA 460.73.01, shading language 3.30 NVIDIA via Cg compiler
+12:36:53.148: ---------------------------------
+12:36:53.148: video settings reset:
+12:36:53.148: 	base resolution:   1920x1080
+12:36:53.148: 	output resolution: 1920x1080
+12:36:53.148: 	downscale filter:  Bicubic
+12:36:53.148: 	fps:               30/1
+12:36:53.148: 	format:            NV12
+12:36:53.148: 	YUV mode:          709/Partial
+12:36:53.149: NV12 texture support not available
+12:36:53.179: Audio monitoring device:
+12:36:53.179: 	name: Padrão
+12:36:53.179: 	id: default
+12:36:53.180: ---------------------------------
+12:36:53.185: Failed to load 'en-US' text for module: 'decklink-captions.so'
+12:36:53.188: Failed to load 'en-US' text for module: 'decklink-ouput-ui.so'
+12:36:53.464: A DeckLink iterator could not be created.  The DeckLink drivers may not be installed
+12:36:53.464: No blackmagic support
+12:36:53.533: v4l2loopback not installed, virtual camera disabled
+12:36:53.557: NVENC supported
+12:36:53.557: FFMPEG VAAPI supported
+12:36:53.568: os_dlopen(/app//lib/obs-plugins/obs-ndi.so->/app//lib/obs-plugins/obs-ndi.so): /app//lib/obs-plugins/obs-ndi.so: não é possível abrir arquivo compartilhado: Arquivo ou diretório inexistente
+12:36:53.568: 
+12:36:53.568: Module '/app//lib/obs-plugins/obs-ndi.so' not loaded
+12:36:53.583: os_dlopen(/app//lib/obs-plugins/obs-v4l2sink.so->/app//lib/obs-plugins/obs-v4l2sink.so): /app//lib/obs-plugins/obs-v4l2sink.so: não é possível abrir arquivo compartilhado: Arquivo ou diretório inexistente
+12:36:53.583: 
+12:36:53.583: Module '/app//lib/obs-plugins/obs-v4l2sink.so' not loaded
+12:36:53.680: ---------------------------------
+12:36:53.680:   Loaded Modules:
+12:36:53.680:     text-freetype2.so
+12:36:53.680:     rtmp-services.so
+12:36:53.680:     obs-xdg-portal.so
+12:36:53.680:     obs-x264.so
+12:36:53.680:     obs-vst.so
+12:36:53.680:     obs-transitions.so
+12:36:53.680:     obs-outputs.so
+12:36:53.680:     obs-libfdk.so
+12:36:53.680:     obs-filters.so
+12:36:53.680:     obs-ffmpeg.so
+12:36:53.680:     linux-v4l2.so
+12:36:53.680:     linux-pulseaudio.so
+12:36:53.680:     linux-jack.so
+12:36:53.680:     linux-decklink.so
+12:36:53.680:     linux-capture.so
+12:36:53.680:     image-source.so
+12:36:53.680:     frontend-tools.so
+12:36:53.680:     decklink-ouput-ui.so
+12:36:53.680:     decklink-captions.so
+12:36:53.680: ---------------------------------
+12:36:53.681: ==== Startup complete ===============================================
+12:36:53.692: All scene data cleared
+12:36:53.692: ------------------------------------------------
+12:36:53.712: pulse-input: Server name: 'pulseaudio 12.2'
+12:36:53.712: pulse-input: Audio format: s16le, 48000 Hz, 2 channels
+12:36:53.713: pulse-input: Started recording from 'alsa_output.pci-0000_00_1f.3.analog-stereo.monitor'
+12:36:53.713: [Loaded global audio device]: 'Desktop Áudio'
+12:36:53.942: pulse-input: Server name: 'pulseaudio 12.2'
+12:36:53.942: pulse-input: Audio format: float32le, 32000 Hz, 1 channels
+12:36:53.943: pulse-input: Started recording from 'alsa_input.usb-GeneralPlus_USB_Audio_Device-00.analog-mono.echo-cancel'
+12:36:53.946: [Loaded global audio device]: 'Mic/Aux'
+12:36:53.946:     - filter: 'Filtro de Rúido' (noise_gate_filter)
+12:36:53.946:     - filter: 'Redução de ruídos' (noise_suppress_filter)
+12:36:53.946:     - filter: 'Compressor Limitador' (compressor_filter)
+12:36:53.946:     - filter: 'Compressor' (compressor_filter)
+12:36:53.946:     - filter: 'Compressor 2' (compressor_filter)
+12:36:53.946:     - filter: 'Ganho' (gain_filter)
+12:36:53.946:     - filter: 'Limitador' (limiter_filter)
+12:36:53.949: [Media Source 'Fonte de mídia']: settings:
+12:36:53.949: 	input:                   /home/mateus/Documentos/Sincronizados/Roveeb/Canal no Youtube/Utilitarios/like.mp4
+12:36:53.949: 	input_format:            (null)
+12:36:53.949: 	speed:                   100
+12:36:53.949: 	is_looping:              yes
+12:36:53.949: 	is_hw_decoding:          no
+12:36:53.949: 	is_clear_on_media_end:   yes
+12:36:53.949: 	restart_on_activate:     no
+12:36:53.949: 	close_when_inactive:     no
+12:36:53.953: xshm-input: Geometry 1920x1080 @ 0,0
+12:36:53.954: v4l2-input: Start capture from /dev/video0
+12:36:53.954: v4l2-input: Unable to open device
+12:36:53.955: v4l2-input: Initialization failed
+12:36:54.027: Switched to scene 'Cena'
+12:36:54.028: ------------------------------------------------
+12:36:54.028: Loaded scenes:
+12:36:54.028: - scene 'Cena':
+12:36:54.032:     - source: 'Captura de Tela (XSHM)' (xshm_input)
+12:36:54.032:     - source: 'Shape' (scene)
+12:36:54.032: - scene 'Cena 2':
+12:36:54.032:     - source: 'Fundo' (image_source)
+12:36:54.032:     - source: 'Shape' (scene)
+12:36:54.032:     - source: 'Fonte de mídia' (ffmpeg_source)
+12:36:54.032:         - filter: 'Chroma Key' (chroma_key_filter)
+12:36:54.032:     - source: 'Miniatura' (image_source)
+12:36:54.033:     - source: 'Miniatura 2' (image_source)
+12:36:54.033:     - source: 'Miniatura 3' (image_source)
+12:36:54.033: - scene 'Shape':
+12:36:54.033:     - source: 'Dispositivo de Captura de Vídeo (V4L2)' (v4l2_input)
+12:36:54.033:         - filter: 'Correção de cor' (color_filter)
+12:36:54.033:         - filter: 'Máscara/mistura de imagem' (mask_filter)
+12:36:54.033: - scene 'Cena 3':
+12:36:54.033:     - source: 'Captura de Janela (Xcomposite)' (xcomposite_input)
+12:36:54.033: ------------------------------------------------
+12:36:54.455: adding 42 milliseconds of audio buffering, total audio buffering is now 42 milliseconds (source: Desktop Áudio)
+12:36:54.455: 
+12:39:08.774: Starting recording due to hotkey
+12:39:08.783: ---------------------------------
+12:39:08.784: [NVENC encoder: 'recording_h264'] settings:
+12:39:08.784: 	rate_control: CBR
+12:39:08.784: 	bitrate:      2500
+12:39:08.784: 	cqp:          0
+12:39:08.784: 	keyint:       250
+12:39:08.784: 	preset:       hq
+12:39:08.784: 	profile:      high
+12:39:08.784: 	width:        1920
+12:39:08.784: 	height:       1080
+12:39:08.784: 	2-pass:       false
+12:39:08.784: 	b-frames:     2
+12:39:08.784: 	GPU:          0
+12:39:08.784: 
+12:39:09.137: libfdk_aac encoder created
+12:39:09.137: libfdk_aac bitrate: 160, channels: 2
+12:39:09.137: libfdk_aac encoder created
+12:39:09.137: libfdk_aac bitrate: 192, channels: 2
+12:39:09.556: ==== Recording Start ===============================================
+12:39:09.556: [ffmpeg muxer: 'adv_file_output'] Writing file '/media/mateus/HD_Externo/Roveeb/Vídeos brutos/2021-06-23 12-39-08.mp4'...
+12:39:39.532: Failed to create xdg-screensaver: 2
+12:39:41.934: Stopping recording due to hotkey
+12:39:43.178: [ffmpeg muxer: 'adv_file_output'] Output of file '/media/mateus/HD_Externo/Roveeb/Vídeos brutos/2021-06-23 12-39-08.mp4' stopped
+12:39:43.178: Output 'adv_file_output': stopping
+12:39:43.178: Output 'adv_file_output': Total frames output: 973
+12:39:43.178: Output 'adv_file_output': Total drawn frames: 1008
+12:39:43.179: ==== Recording Stop ================================================
+12:39:43.179: Video stopped, number of skipped frames due to encoding lag: 7/1008 (0,7%)
+12:39:43.347: libfdk_aac encoder destroyed
+12:39:43.347: libfdk_aac encoder destroyed
+12:42:23.060: Starting recording due to hotkey
+12:42:23.069: ---------------------------------
+12:42:23.070: [NVENC encoder: 'recording_h264'] settings:
+12:42:23.070: 	rate_control: CBR
+12:42:23.070: 	bitrate:      2500
+12:42:23.070: 	cqp:          0
+12:42:23.070: 	keyint:       250
+12:42:23.070: 	preset:       hq
+12:42:23.070: 	profile:      high
+12:42:23.070: 	width:        1920
+12:42:23.070: 	height:       1080
+12:42:23.070: 	2-pass:       false
+12:42:23.070: 	b-frames:     2
+12:42:23.070: 	GPU:          0
+12:42:23.070: 
+12:42:23.257: libfdk_aac encoder created
+12:42:23.257: libfdk_aac bitrate: 160, channels: 2
+12:42:23.257: libfdk_aac encoder created
+12:42:23.257: libfdk_aac bitrate: 192, channels: 2
+12:42:23.259: ==== Recording Start ===============================================
+12:42:23.259: [ffmpeg muxer: 'adv_file_output'] Writing file '/media/mateus/HD_Externo/Roveeb/Vídeos brutos/2021-06-23 12-42-23.mp4'...
+12:42:53.259: Failed to create xdg-screensaver: 2
+12:43:02.623: Stopping recording due to hotkey
+12:43:03.887: [ffmpeg muxer: 'adv_file_output'] Output of file '/media/mateus/HD_Externo/Roveeb/Vídeos brutos/2021-06-23 12-42-23.mp4' stopped
+12:43:03.887: Output 'adv_file_output': stopping
+12:43:03.887: Output 'adv_file_output': Total frames output: 1182
+12:43:03.887: Output 'adv_file_output': Total drawn frames: 1219
+12:43:03.888: ==== Recording Stop ================================================
+12:43:04.059: libfdk_aac encoder destroyed
+12:43:04.059: libfdk_aac encoder destroyed
+12:43:04.347: Starting recording due to hotkey
+12:43:04.356: ---------------------------------
+12:43:04.357: [NVENC encoder: 'recording_h264'] settings:
+12:43:04.357: 	rate_control: CBR
+12:43:04.357: 	bitrate:      2500
+12:43:04.357: 	cqp:          0
+12:43:04.357: 	keyint:       250
+12:43:04.357: 	preset:       hq
+12:43:04.357: 	profile:      high
+12:43:04.357: 	width:        1920
+12:43:04.357: 	height:       1080
+12:43:04.357: 	2-pass:       false
+12:43:04.357: 	b-frames:     2
+12:43:04.357: 	GPU:          0
+12:43:04.357: 
+12:43:04.541: libfdk_aac encoder created
+12:43:04.541: libfdk_aac bitrate: 160, channels: 2
+12:43:04.541: libfdk_aac encoder created
+12:43:04.541: libfdk_aac bitrate: 192, channels: 2
+12:43:04.542: ==== Recording Start ===============================================
+12:43:04.542: [ffmpeg muxer: 'adv_file_output'] Writing file '/media/mateus/HD_Externo/Roveeb/Vídeos brutos/2021-06-23 12-43-04.mp4'...
+12:43:34.543: Failed to create xdg-screensaver: 2
+12:44:04.543: Failed to create xdg-screensaver: 2
+12:44:34.544: Failed to create xdg-screensaver: 2
+12:45:04.546: Failed to create xdg-screensaver: 2
+12:45:34.547: Failed to create xdg-screensaver: 2
+12:46:04.547: Failed to create xdg-screensaver: 2
+12:46:34.548: Failed to create xdg-screensaver: 2
+12:47:04.549: Failed to create xdg-screensaver: 2
+12:47:34.550: Failed to create xdg-screensaver: 2
+12:48:04.551: Failed to create xdg-screensaver: 2
+12:48:34.552: Failed to create xdg-screensaver: 2
+12:49:04.552: Failed to create xdg-screensaver: 2
+12:49:34.553: Failed to create xdg-screensaver: 2
+12:50:04.554: Failed to create xdg-screensaver: 2
+12:50:34.555: Failed to create xdg-screensaver: 2
+12:51:04.556: Failed to create xdg-screensaver: 2
+12:51:34.557: Failed to create xdg-screensaver: 2
+12:52:04.558: Failed to create xdg-screensaver: 2
+12:52:34.559: Failed to create xdg-screensaver: 2
+12:53:04.560: Failed to create xdg-screensaver: 2
+12:53:34.562: Failed to create xdg-screensaver: 2
+12:54:04.566: Failed to create xdg-screensaver: 2
+12:54:34.567: Failed to create xdg-screensaver: 2
+12:55:04.569: Failed to create xdg-screensaver: 2
+12:55:34.570: Failed to create xdg-screensaver: 2
+12:56:04.572: Failed to create xdg-screensaver: 2
+12:56:34.573: Failed to create xdg-screensaver: 2
+12:57:04.577: Failed to create xdg-screensaver: 2
+12:57:34.578: Failed to create xdg-screensaver: 2
+12:58:04.579: Failed to create xdg-screensaver: 2
+12:58:34.580: Failed to create xdg-screensaver: 2
+12:58:58.532: Stopping recording due to hotkey
+12:58:59.867: [ffmpeg muxer: 'adv_file_output'] Output of file '/media/mateus/HD_Externo/Roveeb/Vídeos brutos/2021-06-23 12-43-04.mp4' stopped
+12:58:59.867: Output 'adv_file_output': stopping
+12:58:59.867: Output 'adv_file_output': Total frames output: 28621
+12:58:59.867: Output 'adv_file_output': Total drawn frames: 28653 (28660 attempted)
+12:58:59.867: Output 'adv_file_output': Number of lagged frames due to rendering lag/stalls: 7 (0,0%)
+12:58:59.868: ==== Recording Stop ================================================
+12:59:00.070: libfdk_aac encoder destroyed
+12:59:00.071: libfdk_aac encoder destroyed
+12:59:59.449: ==== Shutting down ==================================================
+12:59:59.471: pulse-input: Stopped recording from 'alsa_output.pci-0000_00_1f.3.analog-stereo.monitor'
+12:59:59.471: pulse-input: Got 306530 packets with 66933179 frames
+12:59:59.472: pulse-input: Stopped recording from 'alsa_input.usb-GeneralPlus_USB_Audio_Device-00.analog-mono.echo-cancel'
+12:59:59.472: pulse-input: Got 138551 packets with 44336320 frames
+12:59:59.472: All scene data cleared
+12:59:59.472: ------------------------------------------------
+12:59:59.483: X Error: GLXBadDrawable, Major opcode: 151, Minor opcode: 26, Serial: 706948
+12:59:59.483: Failed to make context current.
+12:59:59.484: X Error: GLXBadDrawable, Major opcode: 151, Minor opcode: 26, Serial: 706950
+12:59:59.484: Failed to make context current.
+12:59:59.484: X Error: GLXBadDrawable, Major opcode: 151, Minor opcode: 26, Serial: 706952
+12:59:59.484: Failed to make context current.
+12:59:59.484: X Error: GLXBadDrawable, Major opcode: 151, Minor opcode: 26, Serial: 706954
+12:59:59.484: Failed to make context current.
+12:59:59.484: Failed to fetch parent window geometry!
+12:59:59.485: X Error: BadDrawable (invalid Pixmap or Window parameter), Major opcode: 151, Minor opcode: BadLength (poly request too large or internal Xlib length error), Serial: 706956
+12:59:59.485: X Error: GLXBadDrawable, Major opcode: 151, Minor opcode: BadAlloc (insufficient resources for operation), Serial: 706957
+12:59:59.485: X Error: GLXBadDrawable, Major opcode: 151, Minor opcode: 26, Serial: 706959
+12:59:59.485: Failed to make context current.
+12:59:59.485: X Error: GLXBadDrawable, Major opcode: 151, Minor opcode: 26, Serial: 706961
+12:59:59.485: Failed to make context current.
+12:59:59.594: [Scripting] Total detached callbacks: 0
+12:59:59.613: Freeing OBS context data
+12:59:59.652: == Profiler Results =============================
+12:59:59.652: run_program_init: 1999,22 ms
+12:59:59.652:  ┣OBSApp::AppInit: 12,19 ms
+12:59:59.652:  ┃ ┗OBSApp::InitLocale: 7,117 ms
+12:59:59.652:  ┗OBSApp::OBSInit: 1340,1 ms
+12:59:59.652:    ┣obs_startup: 22,861 ms
+12:59:59.652:    ┗OBSBasic::OBSInit: 1066,59 ms
+12:59:59.652:      ┣OBSBasic::InitBasicConfig: 0,46 ms
+12:59:59.652:      ┣OBSBasic::ResetAudio: 0,103 ms
+12:59:59.652:      ┣OBSBasic::ResetVideo: 163,243 ms
+12:59:59.652:      ┣OBSBasic::InitOBSCallbacks: 0,005 ms
+12:59:59.652:      ┣OBSBasic::InitHotkeys: 0,409 ms
+12:59:59.652:      ┣obs_load_all_modules: 499,919 ms
+12:59:59.652:      ┃ ┣obs_init_module(decklink-captions.so): 0,035 ms
+12:59:59.653:      ┃ ┣obs_init_module(decklink-ouput-ui.so): 0,866 ms
+12:59:59.653:      ┃ ┣obs_init_module(frontend-tools.so): 235,498 ms
+12:59:59.653:      ┃ ┣obs_init_module(image-source.so): 0,006 ms
+12:59:59.653:      ┃ ┣obs_init_module(linux-capture.so): 0,49 ms
+12:59:59.653:      ┃ ┣obs_init_module(linux-decklink.so): 0,093 ms
+12:59:59.653:      ┃ ┣obs_init_module(linux-jack.so): 0,005 ms
+12:59:59.653:      ┃ ┣obs_init_module(linux-pulseaudio.so): 0,004 ms
+12:59:59.653:      ┃ ┣obs_init_module(linux-v4l2.so): 34,266 ms
+12:59:59.653:      ┃ ┣obs_init_module(obs-ffmpeg.so): 19,204 ms
+12:59:59.653:      ┃ ┃ ┗nvenc_check: 19,129 ms
+12:59:59.653:      ┃ ┣obs_init_module(obs-filters.so): 0,02 ms
+12:59:59.653:      ┃ ┣obs_init_module(obs-libfdk.so): 0,002 ms
+12:59:59.653:      ┃ ┣obs_init_module(obs-outputs.so): 0,006 ms
+12:59:59.653:      ┃ ┣obs_init_module(obs-transitions.so): 0,018 ms
+12:59:59.653:      ┃ ┣obs_init_module(obs-vst.so): 0,005 ms
+12:59:59.653:      ┃ ┣obs_init_module(obs-x264.so): 0,002 ms
+12:59:59.653:      ┃ ┣obs_init_module(obs-xdg-portal.so): 43,783 ms
+12:59:59.653:      ┃ ┣obs_init_module(rtmp-services.so): 0,561 ms
+12:59:59.653:      ┃ ┗obs_init_module(text-freetype2.so): 0,019 ms
+12:59:59.653:      ┣OBSBasic::ResetOutputs: 1,429 ms
+12:59:59.653:      ┣OBSBasic::CreateHotkeys: 0,316 ms
+12:59:59.653:      ┣OBSBasic::InitService: 3,981 ms
+12:59:59.653:      ┣OBSBasic::InitPrimitives: 0,319 ms
+12:59:59.653:      ┗OBSBasic::Load: 347,701 ms
+12:59:59.653: obs_hotkey_thread(25 ms): min=0,045 ms, median=0,599 ms, max=63,028 ms, 99th percentile=4,529 ms, 99,9325% below 25 ms
+12:59:59.653: audio_thread(Audio): min=0 ms, median=1,325 ms, max=420,172 ms, 99th percentile=4,096 ms
+12:59:59.653:  ┗receive_audio: min=0,001 ms, median=0,796 ms, max=419,192 ms, 99th percentile=1,699 ms, 1,55765 calls per parent call
+12:59:59.653:    ┣buffer_audio: min=0 ms, median=0,001 ms, max=0,752 ms, 99th percentile=0,002 ms
+12:59:59.653:    ┗do_encode: min=0,052 ms, median=0,792 ms, max=419,187 ms, 99th percentile=1,693 ms
+12:59:59.653:      ┣encode(Track2): min=0,052 ms, median=0,236 ms, max=9,079 ms, 99th percentile=1,402 ms, 0,500057 calls per parent call
+12:59:59.653:      ┗encode(Track1): min=0,141 ms, median=0,897 ms, max=11,612 ms, 99th percentile=1,707 ms, 0,499943 calls per parent call
+12:59:59.654: obs_graphics_thread(33,3333 ms): min=0,606 ms, median=9,327 ms, max=95,489 ms, 99th percentile=20,835 ms, 99,8269% below 33,333 ms
+12:59:59.654:  ┣tick_sources: min=0 ms, median=5,126 ms, max=75,664 ms, 99th percentile=9,542 ms
+12:59:59.654:  ┣output_frame: min=0,199 ms, median=1,885 ms, max=22,379 ms, 99th percentile=5,647 ms
+12:59:59.654:  ┃ ┣gs_context(video->graphics): min=0,199 ms, median=1,176 ms, max=20,122 ms, 99th percentile=3,472 ms
+12:59:59.654:  ┃ ┃ ┣render_video: min=0,007 ms, median=0,698 ms, max=12,265 ms, 99th percentile=1,506 ms
+12:59:59.654:  ┃ ┃ ┃ ┣render_main_texture: min=0,004 ms, median=0,439 ms, max=9,131 ms, 99th percentile=1,066 ms
+12:59:59.654:  ┃ ┃ ┃ ┣render_convert_texture: min=0,038 ms, median=0,141 ms, max=6,838 ms, 99th percentile=0,399 ms, 0,742635 calls per parent call
+12:59:59.654:  ┃ ┃ ┃ ┗stage_output_texture: min=0,021 ms, median=0,088 ms, max=11,564 ms, 99th percentile=0,601 ms, 0,742635 calls per parent call
+12:59:59.654:  ┃ ┃ ┣gs_flush: min=0 ms, median=0,012 ms, max=13,647 ms, 99th percentile=0,103 ms
+12:59:59.654:  ┃ ┃ ┗download_frame: min=0 ms, median=0,006 ms, max=0,669 ms, 99th percentile=0,008 ms, 0,742635 calls per parent call
+12:59:59.654:  ┃ ┗output_video_data: min=0,001 ms, median=0,708 ms, max=11,78 ms, 99th percentile=3,85 ms, 0,742563 calls per parent call
+12:59:59.654:  ┗render_displays: min=0,04 ms, median=1,577 ms, max=65,183 ms, 99th percentile=8,274 ms
+12:59:59.654: video_thread(video): min=0,001 ms, median=3,046 ms, max=415,517 ms, 99th percentile=5,292 ms
+12:59:59.654:  ┗receive_video: min=0,886 ms, median=3,041 ms, max=415,513 ms, 99th percentile=5,252 ms
+12:59:59.654:    ┗do_encode: min=0,885 ms, median=3,039 ms, max=415,51 ms, 99th percentile=5,25 ms
+12:59:59.654:      ┗encode(recording_h264): min=0,88 ms, median=3,016 ms, max=14,097 ms, 99th percentile=5,208 ms
+12:59:59.654: =================================================
+12:59:59.654: == Profiler Time Between Calls ==================
+12:59:59.654: obs_hotkey_thread(25 ms): min=25,085 ms, median=25,72 ms, max=784,63 ms, 24,6336% within ±2% of 25 ms (0% lower, 75,3664% higher)
+12:59:59.654: obs_graphics_thread(33,3333 ms): min=4,276 ms, median=33,334 ms, max=95,513 ms, 98,1795% within ±2% of 33,333 ms (0,911452% lower, 0,909047% higher)
+12:59:59.654: =================================================
+12:59:59.758: Number of memory leaks: 0

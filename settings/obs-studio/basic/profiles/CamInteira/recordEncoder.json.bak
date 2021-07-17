@@ -1,0 +1,6 @@
+{
+    "bitrate": 25000,
+    "preset": "veryfast",
+    "profile": "high",
+    "rate_control": "CBR"
+}

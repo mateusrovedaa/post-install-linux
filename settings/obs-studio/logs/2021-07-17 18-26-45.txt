@@ -1,0 +1,124 @@
+18:26:45.750: CPU Name: Intel(R) Core(TM) i5-7400 CPU @ 3.00GHz
+18:26:45.750: CPU Speed: 3228.648MHz
+18:26:45.750: Physical Cores: 4, Logical Cores: 4
+18:26:45.750: Physical Memory: 15971MB Total, 12592MB Free
+18:26:45.750: Kernel Version: Linux 5.8.0-0.bpo.2-amd64
+18:26:45.750: Distribution: "KDE Flatpak runtime" "5.15"
+18:26:45.750: Session Type: x11
+18:26:45.750: Window System: X11.0, Vendor: The X.Org Foundation, Version: 1.20.4
+18:26:45.751: Portable mode: false
+18:26:45.939: OBS 27.0.1 (linux)
+18:26:45.940: ---------------------------------
+18:26:45.940: ---------------------------------
+18:26:45.940: audio settings reset:
+18:26:45.940: 	samples per sec: 48000
+18:26:45.940: 	speakers:        2
+18:26:45.951: ---------------------------------
+18:26:45.951: Initializing OpenGL...
+18:26:46.123: Loading up OpenGL on adapter NVIDIA Corporation GeForce GTX 1050 Ti/PCIe/SSE2
+18:26:46.123: OpenGL loaded successfully, version 3.3.0 NVIDIA 460.73.01, shading language 3.30 NVIDIA via Cg compiler
+18:26:46.143: ---------------------------------
+18:26:46.143: video settings reset:
+18:26:46.143: 	base resolution:   1920x1080
+18:26:46.143: 	output resolution: 1920x1080
+18:26:46.143: 	downscale filter:  Bicubic
+18:26:46.143: 	fps:               30/1
+18:26:46.143: 	format:            NV12
+18:26:46.143: 	YUV mode:          709/Partial
+18:26:46.143: NV12 texture support not available
+18:26:46.157: Audio monitoring device:
+18:26:46.157: 	name: Padrão
+18:26:46.157: 	id: default
+18:26:46.158: ---------------------------------
+18:26:46.161: Failed to load 'en-US' text for module: 'decklink-captions.so'
+18:26:46.164: Failed to load 'en-US' text for module: 'decklink-ouput-ui.so'
+18:26:46.616: A DeckLink iterator could not be created.  The DeckLink drivers may not be installed
+18:26:46.616: No blackmagic support
+18:26:46.697: v4l2loopback not installed, virtual camera disabled
+18:26:46.707: [obs-browser]: Version 2.14.3
+18:26:46.707: [obs-browser]: CEF Version 87.1.12+g03f9336+chromium-87.0.4280.88
+18:26:46.736: NVENC supported
+18:26:46.736: FFMPEG VAAPI supported
+18:26:46.752: os_dlopen(/app//lib/obs-plugins/obs-ndi.so->/app//lib/obs-plugins/obs-ndi.so): /app//lib/obs-plugins/obs-ndi.so: não é possível abrir arquivo compartilhado: Arquivo ou diretório inexistente
+18:26:46.752: 
+18:26:46.752: Module '/app//lib/obs-plugins/obs-ndi.so' not loaded
+18:26:46.770: os_dlopen(/app//lib/obs-plugins/obs-v4l2sink.so->/app//lib/obs-plugins/obs-v4l2sink.so): /app//lib/obs-plugins/obs-v4l2sink.so: não é possível abrir arquivo compartilhado: Arquivo ou diretório inexistente
+18:26:46.770: 
+18:26:46.770: Module '/app//lib/obs-plugins/obs-v4l2sink.so' not loaded
+18:26:46.788: ---------------------------------
+18:26:46.788:   Loaded Modules:
+18:26:46.788:     text-freetype2.so
+18:26:46.788:     rtmp-services.so
+18:26:46.788:     obs-x264.so
+18:26:46.788:     obs-vst.so
+18:26:46.788:     obs-transitions.so
+18:26:46.788:     obs-outputs.so
+18:26:46.788:     obs-libfdk.so
+18:26:46.788:     obs-filters.so
+18:26:46.788:     obs-ffmpeg.so
+18:26:46.788:     obs-browser.so
+18:26:46.788:     linux-v4l2.so
+18:26:46.788:     linux-pulseaudio.so
+18:26:46.788:     linux-jack.so
+18:26:46.788:     linux-decklink.so
+18:26:46.788:     linux-capture.so
+18:26:46.788:     image-source.so
+18:26:46.788:     frontend-tools.so
+18:26:46.788:     decklink-ouput-ui.so
+18:26:46.788:     decklink-captions.so
+18:26:46.788: ---------------------------------
+18:26:46.791: ==== Startup complete ===============================================
+18:26:46.810: All scene data cleared
+18:26:46.810: ------------------------------------------------
+18:26:46.834: pulse-input: Server name: 'pulseaudio 12.2'
+18:26:46.834: pulse-input: Audio format: s16le, 48000 Hz, 2 channels
+18:26:46.835: pulse-input: Started recording from 'alsa_output.pci-0000_00_1f.3.analog-stereo.monitor'
+18:26:46.835: [Loaded global audio device]: 'Desktop Áudio'
+18:26:47.064: pulse-input: Server name: 'pulseaudio 12.2'
+18:26:47.065: pulse-input: Audio format: float32le, 32000 Hz, 1 channels
+18:26:47.065: pulse-input: Started recording from 'alsa_input.usb-GeneralPlus_USB_Audio_Device-00.analog-mono.echo-cancel'
+18:26:47.068: [Loaded global audio device]: 'Mic/Aux'
+18:26:47.068:     - filter: 'Filtro de Rúido' (noise_gate_filter)
+18:26:47.068:     - filter: 'Redução de ruídos' (noise_suppress_filter)
+18:26:47.068:     - filter: 'Compressor Limitador' (compressor_filter)
+18:26:47.068:     - filter: 'Compressor' (compressor_filter)
+18:26:47.068:     - filter: 'Compressor 2' (compressor_filter)
+18:26:47.068:     - filter: 'Ganho' (gain_filter)
+18:26:47.069:     - filter: 'Limitador' (limiter_filter)
+18:26:47.079: v4l2-input: Start capture from /dev/video0
+18:26:47.079: v4l2-input: Unable to open device
+18:26:47.079: v4l2-input: Initialization failed
+18:26:47.083: xshm-input: Geometry 1920x1080 @ 0,0
+18:26:47.091: [Media Source 'Fonte de mídia']: settings:
+18:26:47.091: 	input:                   /home/mateus/Documentos/Sincronizados/Roveeb/Canal no Youtube/Utilitarios/like.mp4
+18:26:47.091: 	input_format:            (null)
+18:26:47.091: 	speed:                   100
+18:26:47.091: 	is_looping:              yes
+18:26:47.091: 	is_linear_alpha:         no
+18:26:47.091: 	is_hw_decoding:          no
+18:26:47.091: 	is_clear_on_media_end:   yes
+18:26:47.091: 	restart_on_activate:     no
+18:26:47.091: 	close_when_inactive:     no
+18:26:47.163: Switched to scene 'Cena'
+18:26:47.163: ------------------------------------------------
+18:26:47.163: Loaded scenes:
+18:26:47.163: - scene 'Cena':
+18:26:47.167:     - source: 'Captura de Tela (XSHM)' (xshm_input)
+18:26:47.168:     - source: 'Shape' (scene)
+18:26:47.168: - scene 'Cena 2':
+18:26:47.168:     - source: 'Fundo' (image_source)
+18:26:47.168:     - source: 'Shape' (scene)
+18:26:47.168:     - source: 'Fonte de mídia' (ffmpeg_source)
+18:26:47.168:         - filter: 'Chroma Key' (chroma_key_filter)
+18:26:47.168:     - source: 'Miniatura' (image_source)
+18:26:47.168:     - source: 'Miniatura 2' (image_source)
+18:26:47.168:     - source: 'Miniatura 3' (image_source)
+18:26:47.168: - scene 'Shape':
+18:26:47.168:     - source: 'Dispositivo de Captura de Vídeo (V4L2)' (v4l2_input)
+18:26:47.168:         - filter: 'Correção de cor' (color_filter)
+18:26:47.168:         - filter: 'Máscara/mistura de imagem' (mask_filter)
+18:26:47.168: - scene 'Cena 3':
+18:26:47.168:     - source: 'Captura de Janela (Xcomposite)' (xcomposite_input)
+18:26:47.168: ------------------------------------------------
+18:26:47.569: adding 42 milliseconds of audio buffering, total audio buffering is now 42 milliseconds (source: Desktop Áudio)
+18:26:47.569: 

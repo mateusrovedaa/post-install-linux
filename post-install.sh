@@ -45,7 +45,16 @@ virtualbox-ext-pack \
 chromium-browser \
 hugo \
 nextcloud-client \
-nextcloud-client-nautilus
+nextcloud-client-nautilus \
+keepassxc
+
+echo "${GREEN}-> Configure KeePassXC${RESET}"
+mkdir -p $HOME/.config/keepassxc
+cp settings/keepassxc.ini $HOME/.config/keepassxc
+
+echo "${GREEN}-> Configure Kdenlive${RESET}"
+mkdir -p $HOME/.config/kdenlive
+cp -r settings/kdenlive $HOME/.config/kdenlive
 
 echo "${GREEN}-> Install VSCode${RESET}"
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add –
@@ -54,7 +63,7 @@ sudo apt install code
 
 echo "${GREEN}-> Configure Visual Studio Code${RESET}"
 mkdir -p $HOME/.config/Code/User/
-mv settings/settings.json $HOME/.config/Code/User/settings.json
+cp settings/settings.json $HOME/.config/Code/User/settings.json
 EXTENSIONS_FILE="settings/extensions"
 EXTENSIONS_LINES=`cat $EXTENSIONS_FILE`
 for extension in $EXTENSIONS_LINES; do
@@ -78,6 +87,10 @@ if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
 " >> ~/.bashrc
+
+echo "${GREEN}-> Configure OBS Studio${RESET}"
+mkdir -p $HOME/.config/obs-studio/
+pc -r settings/obs-studio/ $HOME/.config/obs-studio/
 
 echo "${GREEN}-> Configure Ansible${RESET}"
 sudo mv /etc/ansible/ansible.cfg /etc/ansible/ansible.cfg-original
