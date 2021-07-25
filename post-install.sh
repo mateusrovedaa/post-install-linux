@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$1" == ""  || "$2" == "" ] ; then
+if [ "$1" == ""  ] || [ "$2" == "" ] ; then
     echo "${GREEN}Post install script to Ubuntu system based${RESET}"
     echo "Use mode: $0 gitusername gitemail"
 else
@@ -31,7 +31,7 @@ curl \
 gnupg \
 lsb-release \
 wget \
-java-11-openjdk \ 
+default-jdk \
 steam \
 gimp \
 kdenlive \
@@ -40,12 +40,11 @@ git \
 neofetch \
 obs-studio \
 gnome-tweaks \
+nextcloud-desktop \
 virtualbox \
 virtualbox-ext-pack \
 chromium-browser \
-hugo \
-nextcloud-client \
-nextcloud-client-nautilus \
+vim \
 keepassxc
 
 echo "${GREEN}-> Configure KeePassXC${RESET}"
@@ -57,8 +56,8 @@ mkdir -p $HOME/.config/kdenlive
 cp -r settings/kdenlive $HOME/.config/kdenlive
 
 echo "${GREEN}-> Install VSCode${RESET}"
-wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add –
-sudo add-apt-repository “deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main”
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 sudo apt install code
 
 echo "${GREEN}-> Configure Visual Studio Code${RESET}"
@@ -90,7 +89,7 @@ fi
 
 echo "${GREEN}-> Configure OBS Studio${RESET}"
 mkdir -p $HOME/.config/obs-studio/
-pc -r settings/obs-studio/ $HOME/.config/obs-studio/
+cp -r settings/obs-studio/ $HOME/.config/obs-studio/
 
 echo "${GREEN}-> Configure Ansible${RESET}"
 sudo mv /etc/ansible/ansible.cfg /etc/ansible/ansible.cfg-original
@@ -103,6 +102,9 @@ sudo mv /tmp/Telegram /opt/
 
 echo "${GREEN}-> Install docker and docker-compose${RESET}"
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io
 sudo groupadd docker
@@ -113,15 +115,16 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 
 echo "${GREEN}-> Install Netbeans IDE${RESET}"
-wget https://downloads.apache.org/netbeans/netbeans/12.2/Apache-NetBeans-12.2-bin-linux-x64.sh -P /tmp/
-sudo sh /tmp/Apache-NetBeans-12.2-bin-linux-x64.s 
+wget https://downloads.apache.org/netbeans/netbeans/12.4/Apache-NetBeans-12.4-bin-linux-x64.sh -P /tmp/
+sudo sh /tmp/Apache-NetBeans-12.4-bin-linux-x64.sh
 
 echo "${GREEN}-> Install Discord${RESET}"
-wget -o discord.deb https://dl.discordapp.net/apps/linux/0.0.15/discord-0.0.15.deb -P /tmp/
-sudo apt install ./tmp/discord-0.0.15.deb
+wget -O /tmp/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
+sudo dpkg -i /tmp/discord.deb
+sudo apt --fix-broken install -y
 
 echo "${GREEN}-> Install cloudflared${RESET}"
-mkdir =p $HOME/.ssh
+mkdir -p $HOME/.ssh
 wget https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb -P /tmp/
 sudo dpkg -i /tmp/cloudflared-stable-linux-amd64.deb
 echo "Host *.roveeb.com
@@ -131,8 +134,9 @@ echo "Host *.roveeb.com
 
 echo "${GREEN}-> Configure user environment${RESET}"
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
-cp images/wallpaper.jpg $HOME/Pictures/Wallpapers
-gsettings set org.gnome.desktop.background picture-uri "file:///$HOME/Pictures/Wallpapers/wallpaper.jpg"
+mkdir -p $HOME/Imagens/Wallpapers
+cp images/wallpaper.jpg $HOME/Imagens/Wallpapers
+gsettings set org.gnome.desktop.background picture-uri "file:///$HOME/Imagens/Wallpapers/wallpaper.jpg"
 mkdir -p $HOME/Projects
 mkdir -p $HOME/Projects/aztec
 mkdir -p $HOME/Projects/univates
@@ -140,10 +144,10 @@ mkdir -p $HOME/Projects/personal
 # TODO: Configure fonts
 
 echo "${GREEN}-> Configure pulseaudio${RESET}"
-sudo echo '
+sudo bash -c "echo '
 ### Mateus settings
 load-module module-echo-cancel aec_method=webrtc sink_properties=device.description="Noise_Reduction" aec_args="analog_gain_control=0\ digital_gain_control=0"
-' >> /etc/pulse/default.pa
+' >> /etc/pulse/default.pa"
 
 echo "${GREEN}-> Cleanup system${RESET}"
 sudo apt autoremove -y
