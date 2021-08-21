@@ -56,9 +56,9 @@ mkdir -p $HOME/.config/kdenlive
 cp -r settings/kdenlive $HOME/.config/kdenlive
 
 echo "${GREEN}-> Install VSCode${RESET}"
-sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
-sudo apt install code
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo apt install code -y
 
 echo "${GREEN}-> Configure Visual Studio Code${RESET}"
 mkdir -p $HOME/.config/Code/User/
@@ -97,8 +97,9 @@ sudo cp settings/ansible.cfg /etc/ansible/ansible.cfg
 
 echo "${GREEN}-> Install Telegram Desktop${RESET}"
 wget https://updates.tdesktop.com/tlinux/tsetup.2.7.4.tar.xz -P /tmp/
-tar -xvf /tmp/sudo apt installtsetup.2.7.4.tar.xz --directory /tmp/
+tar -xvf /tmp/tsetup.2.7.4.tar.xz --directory /tmp/
 sudo mv /tmp/Telegram /opt/
+./opt/Telegram/Telegram
 
 echo "${GREEN}-> Install docker and docker-compose${RESET}"
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -106,7 +107,7 @@ echo \
   "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt update
-sudo apt install docker-ce docker-ce-cli containerd.io
+sudo apt install docker-ce docker-ce-cli containerd.io -y
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo systemctl enable docker.service
@@ -141,12 +142,16 @@ mkdir -p $HOME/Projects
 mkdir -p $HOME/Projects/aztec
 mkdir -p $HOME/Projects/univates
 mkdir -p $HOME/Projects/personal
-# TODO: Configure fonts
+
+echo "${GREEN}-> Configure fonts${RESET}"
+sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
+sudo apt update
+sudo apt install fonts-firacode -y
 
 echo "${GREEN}-> Configure pulseaudio${RESET}"
 sudo bash -c "echo '
 ### Mateus settings
-load-module module-echo-cancel aec_method=webrtc sink_properties=device.description="Noise_Reduction" aec_args="analog_gain_control=0\ digital_gain_control=0"
+load-module module-echo-cancel aec_method=webrtc sink_properties=device.description=\"Noise_Reduction\" aec_args=\"analog_gain_control=0\ digital_gain_control=0\"
 ' >> /etc/pulse/default.pa"
 
 echo "${GREEN}-> Cleanup system${RESET}"
