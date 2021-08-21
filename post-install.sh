@@ -77,7 +77,7 @@ git config --global user.email "$GIT_EMAIL"
 git config --global user.name "$GIT_USERNAME"
 git config --global init.defaultBranch main
 
-echo "${GREEN}-> Configure bash git prompt${RESET}"
+echo "${GREEN}-> Configure bashrc functions${RESET}"
 git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 echo "
 # git-bash-prompt
@@ -85,6 +85,14 @@ if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
+
+# Kill and remove all containers
+function docker-clean {
+        echo 'Killing...'
+        docker kill $(docker ps -q)
+        echo 'Removing...'
+        docker rm $(docker ps -qa)
+}
 " >> ~/.bashrc
 
 echo "${GREEN}-> Configure OBS Studio${RESET}"
