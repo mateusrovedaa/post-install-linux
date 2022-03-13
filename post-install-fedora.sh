@@ -28,8 +28,6 @@ libwebp-tools \
 neofetch \
 nextcloud-desktop \
 keepassxc \
-virtualbox \
-virtualbox-ext-pack \
 obs-studio \
 kdenlive \
 chromium-browser \
