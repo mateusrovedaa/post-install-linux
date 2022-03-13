@@ -36,7 +36,6 @@ steam \
 gimp \
 kdenlive \
 ansible \
-git \
 neofetch \
 obs-studio \
 gnome-tweaks \
@@ -147,7 +146,6 @@ mkdir -p $HOME/Imagens/Wallpapers
 cp images/wallpaper.jpg $HOME/Imagens/Wallpapers
 gsettings set org.gnome.desktop.background picture-uri "file:///$HOME/Imagens/Wallpapers/wallpaper.jpg"
 mkdir -p $HOME/Projects
-mkdir -p $HOME/Projects/aztec
 mkdir -p $HOME/Projects/univates
 mkdir -p $HOME/Projects/personal
 
