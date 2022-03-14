@@ -23,20 +23,20 @@ sudo dnf -y update
 echo "${GREEN}-> Install packages for Fedora and enable RPM fusion${RESET}"
 sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf -y install vim \
-default-jdk \
+java-11-openjdk \
 libwebp-tools \
 neofetch \
-nextcloud-desktop \
+nextcloud-client \
 keepassxc \
 obs-studio \
 kdenlive \
-chromium-browser \
+chromium \
 gnome-tweaks \
 gnome-extensions-app \
 gimp \ 
 audacity \
-discord
-sudo python get-pip.py
+discord \
+python3-pip
 sudo python -m pip install ansible
 
 echo "${GREEN}-> Configure KeePassXC${RESET}"
@@ -146,6 +146,12 @@ echo " * Set default window theme"
 gsettings set org.gnome.desktop.wm.preferences theme "Adwaita-dark"
 echo " * Set background"
 gsettings set org.gnome.desktop.background picture-uri "file:///$HOME/Imagens/Wallpapers/wallpaper.jpg"
+echo " * Set window buttons"
+gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
+echo " * Install gnome extensions"
+wget https://github.com/MartinPL/Tray-Icons-Reloaded/archive/refs/tags/21.tar.gz -P /tmp/
+mkdir -p $HOME/.local/share/gnome-shell/extensions/
+mv -r /tmp/Tray-Icons-Reloaded-21 $HOME/.local/share/gnome-shell/extensions/*
 
 echo "-> Install desktop apps"
 echo " * Evolution Email Client"
