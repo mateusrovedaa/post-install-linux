@@ -1,2 +1,2 @@
-# post-install-ubuntu
+# post-install-script
 

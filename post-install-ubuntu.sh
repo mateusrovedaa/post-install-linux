@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eo pipefail
+
 if [ "$1" == ""  ] || [ "$2" == "" ] ; then
     echo "${GREEN}Post install script to Ubuntu system based${RESET}"
     echo "Use mode: $0 gitusername gitemail"
@@ -34,7 +36,7 @@ wget \
 default-jdk \
 steam \
 gimp \
-kdenlive \
+
 ansible \
 neofetch \
 obs-studio \
@@ -43,23 +45,26 @@ nextcloud-desktop \
 virtualbox \
 virtualbox-ext-pack \
 chromium-browser \
-vim \
-keepassxc
+vim
 
-echo "${GREEN}-> Configure KeePassXC${RESET}"
-mkdir -p $HOME/.config/keepassxc
-cp settings/keepassxc.ini $HOME/.config/keepassxc
+echo "${GREEN}-> Install and enable Flatpak${RESET}"
+sudo apt install flatpak gnome-software-plugin-flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-echo "${GREEN}-> Configure Kdenlive${RESET}"
-mkdir -p $HOME/.config/kdenlive
-cp -r settings/kdenlive $HOME/.config/kdenlive
+echo "${GREEN}-> Install and configure KeePassXC${RESET}"
+flatpak install flathub org.keepassxc.KeePassXC -y
+cp settings/keepassxc.ini $HOME/.var/app/org.keepassxc.KeePassXC/config/keepassxc/
+
+echo "${GREEN}-> Install and Configure Kdenlive${RESET}"
+flatpak install flathub org.kde.kdenlive
+cp -r settings/kdenlive $HOME/.var/app/org.kde.kdenlive/data/kdenlive
 
 echo "${GREEN}-> Install VSCode${RESET}"
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo apt install code -y
 
-echo "${GREEN}-> Configure Visual Studio Code${RESET}"
+echo "${GREEN}-> Configure VSCode${RESET}"
 mkdir -p $HOME/.config/Code/User/
 cp settings/settings.json $HOME/.config/Code/User/settings.json
 EXTENSIONS_FILE="settings/extensions"
@@ -96,17 +101,17 @@ function docker-clean {
 
 echo "${GREEN}-> Configure OBS Studio${RESET}"
 mkdir -p $HOME/.config/obs-studio/
-cp -r settings/obs-studio/ $HOME/.config/obs-studio/
+cp -r settings/obs-studio/* $HOME/.config/obs-studio
 
 echo "${GREEN}-> Configure Ansible${RESET}"
 sudo mv /etc/ansible/ansible.cfg /etc/ansible/ansible.cfg-original
 sudo cp settings/ansible.cfg /etc/ansible/ansible.cfg
 
 echo "${GREEN}-> Install Telegram Desktop${RESET}"
-wget https://updates.tdesktop.com/tlinux/tsetup.2.7.4.tar.xz -P /tmp/
-tar -xvf /tmp/tsetup.2.7.4.tar.xz --directory /tmp/
+wget https://updates.tdesktop.com/tlinux/tsetup.3.6.1.tar.xz -O /tmp/tsetup.tar.xz
+tar -xvf /tmp/tsetup.tar.xz --directory /tmp/
 sudo mv /tmp/Telegram /opt/
-./opt/Telegram/Telegram
+/opt/Telegram/Telegram
 
 echo "${GREEN}-> Install docker and docker-compose${RESET}"
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -123,8 +128,8 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 
 echo "${GREEN}-> Install Netbeans IDE${RESET}"
-wget https://downloads.apache.org/netbeans/netbeans/12.4/Apache-NetBeans-12.4-bin-linux-x64.sh -P /tmp/
-sudo sh /tmp/Apache-NetBeans-12.4-bin-linux-x64.sh
+wget https://archive.apache.org/dist/netbeans/netbeans/12.5/Apache-NetBeans-12.5-bin-linux-x64.sh -O /tmp/netbeans.sh
+sudo sh /tmp/netbeans.sh
 
 echo "${GREEN}-> Install Discord${RESET}"
 wget -O /tmp/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
@@ -133,7 +138,7 @@ sudo apt --fix-broken install -y
 
 echo "${GREEN}-> Install cloudflared${RESET}"
 mkdir -p $HOME/.ssh
-wget https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb -P /tmp/
+wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb -P /tmp/
 sudo dpkg -i /tmp/cloudflared-stable-linux-amd64.deb
 echo "Host *.roveeb.com
         ProxyCommand /usr/local/bin/cloudflared access ssh --hostname %h
@@ -153,12 +158,6 @@ echo "${GREEN}-> Configure fonts${RESET}"
 sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
 sudo apt update
 sudo apt install fonts-firacode -y
-
-echo "${GREEN}-> Configure pulseaudio${RESET}"
-sudo bash -c "echo '
-### Mateus settings
-load-module module-echo-cancel aec_method=webrtc sink_properties=device.description=\"Noise_Reduction\" aec_args=\"analog_gain_control=0\ digital_gain_control=0\"
-' >> /etc/pulse/default.pa"
 
 echo "${GREEN}-> Cleanup system${RESET}"
 sudo apt autoremove -y
