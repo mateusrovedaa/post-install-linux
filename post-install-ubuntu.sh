@@ -36,7 +36,6 @@ wget \
 default-jdk \
 steam \
 gimp \
-
 ansible \
 neofetch \
 obs-studio \
@@ -131,11 +130,13 @@ echo "${GREEN}-> Install Netbeans IDE${RESET}"
 wget https://archive.apache.org/dist/netbeans/netbeans/12.5/Apache-NetBeans-12.5-bin-linux-x64.sh -O /tmp/netbeans.sh
 sudo sh /tmp/netbeans.sh
 
+set +eo pipefail
 echo "${GREEN}-> Install Discord${RESET}"
 wget -O /tmp/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
 sudo dpkg -i /tmp/discord.deb
 sudo apt --fix-broken install -y
 
+set -eo pipefail
 echo "${GREEN}-> Install cloudflared${RESET}"
 mkdir -p $HOME/.ssh
 wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb -P /tmp/
