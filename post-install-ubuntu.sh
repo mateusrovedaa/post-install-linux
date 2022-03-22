@@ -56,7 +56,7 @@ cp settings/keepassxc.ini $HOME/.var/app/org.keepassxc.KeePassXC/config/keepassx
 
 echo "${GREEN}-> Install and Configure Kdenlive${RESET}"
 flatpak install flathub org.kde.kdenlive
-cp -r settings/kdenlive $HOME/.var/app/org.kde.kdenlive/data/kdenlive
+cp -r settings/kdenlive/* $HOME/.var/app/org.kde.kdenlive/config/
 
 echo "${GREEN}-> Install VSCode${RESET}"
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
