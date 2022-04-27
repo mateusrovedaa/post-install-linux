@@ -33,11 +33,17 @@ kdenlive \
 chromium \
 gnome-tweaks \
 gnome-extensions-app \
-gimp \ 
+gimp \
 audacity \
 discord \
+google-chorme \
 python3-pip
 sudo python -m pip install ansible
+
+echo "${GREEN}-> Installing Media Codecs${RESET}"
+sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
+sudo dnf install lame\* --exclude=lame-devel
+sudo dnf group upgrade --with-optional Multimedia
 
 echo "${GREEN}-> Configure KeePassXC${RESET}"
 mkdir -p $HOME/.config/keepassxc
@@ -50,7 +56,7 @@ git config --global init.defaultBranch main
 
 echo "${GREEN}-> Configure bashrc functions${RESET}"
 git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
-echo "
+echo '
 # git-bash-prompt
 if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
@@ -64,7 +70,7 @@ function docker-clean {
         echo 'Removing...'
         docker rm $(docker ps -qa)
 }
-" >> ~/.bashrc
+' >> ~/.bashrc
 
 echo "${GREEN}-> Install Visual Studio Code${RESET}"
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -85,14 +91,10 @@ for extension in $EXTENSIONS_LINES; do
 done
 
 echo "${GREEN}-> Install Telegram Desktop${RESET}"
-wget https://updates.tdesktop.com/tlinux/tsetup.2.7.4.tar.xz -P /tmp/
-tar -xvf /tmp/tsetup.2.7.4.tar.xz --directory /tmp/
+wget https://updates.tdesktop.com/tlinux/tsetup.3.6.1.tar.xz -O /tmp/tsetup.tar.xz
+tar -xvf /tmp/tsetup.tar.xz --directory /tmp/
 sudo mv /tmp/Telegram /opt/
-
-echo "${GREEN}-> Install v4l2loopback from sentry/v4l2loopback${RESET}"
-sudo dnf -y copr enable sentry/v4l2loopback
-sudo dnf -y install v4l2loopback
-sudo dnf -y install v4l2loopback-dkms
+/opt/Telegram/Telegram
 
 echo "${GREEN}-> Install and configure Iriun Webcam${RESET}"
 wget http://iriun.gitlab.io/iriunwebcam-2.3.1.deb -P /tmp/
@@ -105,7 +107,7 @@ echo "${GREEN}-> Install Docker Engine and Docker Composer${RESET}"
 sudo dnf -y remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-selinux docker-engine-selinux docker-engine
 sudo dnf -y install dnf-plugins-core
 sudo dnf -y config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-sudo dnf -y install docker-ce docker-ce-cli containerd.io docker-compose
+sudo dnf -y install docker-ce docker-ce-cli containerd.io docker-compose gnome-boxes
 sudo systemctl enable docker
 sudo usermod -G docker -a $USER
 
@@ -116,12 +118,13 @@ tar -zxvf /tmp/linuxbrowser0.6.1-obs23.0.2-64bit.tgz -C $HOME/.config/obs-studio
 cp -r settings/obs-studio/ $HOME/.config/obs-studio/
 
 echo "${GREEN}-> Configure Ansible${RESET}"
+sudo mkdir -p /etc/ansible
 sudo mv /etc/ansible/ansible.cfg /etc/ansible/ansible.cfg-original
 sudo cp settings/ansible.cfg /etc/ansible/ansible.cfg
 
 echo "${GREEN}-> Install Netbeans IDE${RESET}"
-wget https://downloads.apache.org/netbeans/netbeans/12.4/Apache-NetBeans-12.4-bin-linux-x64.sh -P /tmp/
-sudo sh /tmp/Apache-NetBeans-12.4-bin-linux-x64.sh
+wget https://archive.apache.org/dist/netbeans/netbeans/12.5/Apache-NetBeans-12.5-bin-linux-x64.sh -O /tmp/netbeans.sh
+sudo sh /tmp/netbeans.sh
 
 echo "${GREEN}-> Install cloudflared${RESET}"
 mkdir -p $HOME/.ssh
@@ -137,31 +140,31 @@ echo " * Create Project path"
 mkdir $HOME/Projects
 mkdir -p $HOME/Projects/univates
 mkdir -p $HOME/Projects/personal
+mkdir -p $HOME/Projects/work
 echo " * Copy Wallpappers"
-mkdir -p $HOME/Imagens/Wallpapers
-cp images/wallpaper.jpg $HOME/Imagens/Wallpapers
+mkdir -p $HOME/Pictures/Wallpapers
+cp images/wallpaper.jpg $HOME/Pictures/Wallpapers
 echo " * Set default theme"
 gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
 echo " * Set default window theme"
 gsettings set org.gnome.desktop.wm.preferences theme "Adwaita-dark"
 echo " * Set background"
-gsettings set org.gnome.desktop.background picture-uri "file:///$HOME/Imagens/Wallpapers/wallpaper.jpg"
+gsettings set org.gnome.desktop.background picture-uri "file:///$HOME/Pictures/Wallpapers/wallpaper.jpg"
 echo " * Set window buttons"
 gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
 echo " * Install gnome extensions"
-wget https://github.com/MartinPL/Tray-Icons-Reloaded/archive/refs/tags/21.tar.gz -P /tmp/
-mkdir -p $HOME/.local/share/gnome-shell/extensions/
-mv -r /tmp/Tray-Icons-Reloaded-21 $HOME/.local/share/gnome-shell/extensions/*
+# TODO
 
 echo "-> Install desktop apps"
-echo " * Evolution Email Client"
-sudo dnf -y evolution
 echo " * Spotify via negativo17"
 sudo dnf -y config-manager --add-repo=https://negativo17.org/repos/fedora-spotify.repo
 sudo dnf -y install spotify-client
 
+echo "${GREEN}-> Configure flahub${RESET}"
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
 echo "${GREEN}-> Configure fonts${RESET}"
-dnf install fira-code-fonts
+sudo dnf install fira-code-fonts
 
 echo "#####################"
 echo "${GREEN}Post install finish${RESET}"
