@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Determine git user and email address
-if [ "$1" == ""  ] || [ "$2" == "" ] ; then
+if [ "$1" == "" ] || [ "$2" == "" ]; then
     echo "${GREEN}Post install script to Ubuntu system based${RESET}"
     echo "Use mode: $0 gitusername gitemail"
 else
@@ -10,8 +10,8 @@ else
     GIT_EMAIL=$2
 fi
 
-GREEN=`tput setaf 2`
-RESET=`tput sgr0`
+GREEN=$(tput setaf 2)
+RESET=$(tput sgr0)
 
 echo "#####################"
 echo "${GREEN}Post install script to Fedora system based${RESET}"
@@ -23,21 +23,21 @@ sudo dnf -y update
 echo "${GREEN}-> Install packages for Fedora and enable RPM fusion${RESET}"
 sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf -y install vim \
-java-11-openjdk \
-libwebp-tools \
-neofetch \
-nextcloud-client \
-keepassxc \
-obs-studio \
-kdenlive \
-chromium \
-gnome-tweaks \
-gnome-extensions-app \
-gimp \
-audacity \
-discord \
-google-chorme \
-python3-pip
+    java-11-openjdk \
+    libwebp-tools \
+    neofetch \
+    nextcloud-client \
+    keepassxc \
+    obs-studio \
+    kdenlive \
+    chromium \
+    gnome-tweaks \
+    gnome-extensions-app \
+    gimp \
+    audacity \
+    discord \
+    google-chorme \
+    python3-pip
 sudo python -m pip install ansible
 
 echo "${GREEN}-> Installing Media Codecs${RESET}"
@@ -56,9 +56,9 @@ git config --global init.defaultBranch main
 
 echo "${GREEN}-> Configure bashrc functions${RESET}"
 git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
-echo '
+echo "
 # git-bash-prompt
-if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+if [ -f '$HOME/.bash-git-prompt/gitprompt.sh' ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
@@ -70,7 +70,11 @@ function docker-clean {
         echo 'Removing...'
         docker rm $(docker ps -qa)
 }
-' >> ~/.bashrc
+
+# PS1
+export PS1='[\A] \u@\h {\w} \\$ \[$(tput sgr0)\]'
+
+" >>~/.bashrc
 
 echo "${GREEN}-> Install Visual Studio Code${RESET}"
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -82,7 +86,7 @@ echo "${GREEN}-> Configure Visual Studio Code${RESET}"
 mkdir -p $HOME/.config/Code/User/
 cp settings/settings.json $HOME/.config/Code/User/settings.json
 EXTENSIONS_FILE="settings/extensions"
-EXTENSIONS_LINES=`cat $EXTENSIONS_FILE`
+EXTENSIONS_LINES=$(cat $EXTENSIONS_FILE)
 for extension in $EXTENSIONS_LINES; do
     echo " * Install $extension"
     code --install-extension $extension
@@ -133,7 +137,7 @@ sudo rpm -i /tmp/cloudflared-linux-x86_64.rpm
 echo "Host *.roveeb.com
         ProxyCommand /usr/local/bin/cloudflared access ssh --hostname %h
         IdentityFile /home/mateus/.ssh/mateus
-" >> $HOME/.ssh/config
+" >>$HOME/.ssh/config
 
 echo "${GREEN}-> Configure user ambient${RESET}"
 echo " * Create Project path"

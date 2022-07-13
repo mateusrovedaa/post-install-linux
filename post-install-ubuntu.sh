@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-if [ "$1" == ""  ] || [ "$2" == "" ] ; then
+if [ "$1" == "" ] || [ "$2" == "" ]; then
     echo "${GREEN}Post install script to Ubuntu system based${RESET}"
     echo "Use mode: $0 gitusername gitemail"
 else
@@ -11,8 +11,8 @@ else
     GIT_EMAIL=$2
 fi
 
-GREEN=`tput setaf 2`
-RESET=`tput sgr0`
+GREEN=$(tput setaf 2)
+RESET=$(tput sgr0)
 
 echo "#####################"
 echo "${GREEN}Post install script to Ubuntu system based${RESET}"
@@ -26,25 +26,25 @@ sudo apt upgrade -y
 
 echo "${GREEN}-> Install basic packages${RESET}"
 sudo apt install -y \
-software-properties-common \
-apt-transport-https \
-ca-certificates \
-curl \
-gnupg \
-lsb-release \
-wget \
-default-jdk \
-steam \
-gimp \
-ansible \
-neofetch \
-obs-studio \
-gnome-tweaks \
-nextcloud-desktop \
-virtualbox \
-virtualbox-ext-pack \
-chromium-browser \
-vim
+    software-properties-common \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release \
+    wget \
+    default-jdk \
+    steam \
+    gimp \
+    ansible \
+    neofetch \
+    obs-studio \
+    gnome-tweaks \
+    nextcloud-desktop \
+    virtualbox \
+    virtualbox-ext-pack \
+    chromium-browser \
+    vim
 
 echo "${GREEN}-> Install and enable Flatpak${RESET}"
 sudo apt install flatpak gnome-software-plugin-flatpak
@@ -67,7 +67,7 @@ echo "${GREEN}-> Configure VSCode${RESET}"
 mkdir -p $HOME/.config/Code/User/
 cp settings/settings.json $HOME/.config/Code/User/settings.json
 EXTENSIONS_FILE="settings/extensions"
-EXTENSIONS_LINES=`cat $EXTENSIONS_FILE`
+EXTENSIONS_LINES=$(cat $EXTENSIONS_FILE)
 for extension in $EXTENSIONS_LINES; do
     echo " * Install $extension"
     code --install-extension $extension
@@ -84,7 +84,7 @@ echo "${GREEN}-> Configure bashrc functions${RESET}"
 git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 echo "
 # git-bash-prompt
-if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+if [ -f '$HOME/.bash-git-prompt/gitprompt.sh' ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
@@ -96,7 +96,11 @@ function docker-clean {
         echo 'Removing...'
         docker rm $(docker ps -qa)
 }
-" >> ~/.bashrc
+
+# PS1
+export PS1='[\A] \u@\h {\w} \\$ \[$(tput sgr0)\]'
+
+" >>~/.bashrc
 
 echo "${GREEN}-> Configure OBS Studio${RESET}"
 mkdir -p $HOME/.config/obs-studio/
@@ -115,8 +119,8 @@ sudo mv /tmp/Telegram /opt/
 echo "${GREEN}-> Install docker and docker-compose${RESET}"
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 echo \
-  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io -y
 sudo groupadd docker
@@ -144,7 +148,7 @@ sudo dpkg -i /tmp/cloudflared-stable-linux-amd64.deb
 echo "Host *.roveeb.com
         ProxyCommand /usr/local/bin/cloudflared access ssh --hostname %h
         IdentityFile /home/mateus/.ssh/mateus
-" >> $HOME/.ssh/config
+" >>$HOME/.ssh/config
 
 echo "${GREEN}-> Configure user environment${RESET}"
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
